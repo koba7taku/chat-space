@@ -5,29 +5,29 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|nickname|string|null: false|
+|nickname|string|null: false|index: true|
 ### Association
-- has_many :groups,through: members
-- has_many :messages
-- has_many :members
+- has_many :through: :groups_users
+- has_many :chats
 
 
-# chatテーブル
+
+# chatsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
 |text|text||
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :messages
+- has_many :through: :groups_users
 
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |tweet_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :chat
-- has_many :messages
+- has_many :through: :groups_users
