@@ -19,7 +19,6 @@
       height: 20px;
       width: 260px;
       align-items: center;
-      // background-color: #333333;
       margin: 0px auto;
       position: relative;
       
@@ -45,7 +44,6 @@
     background-color:#2f3e51;
     height: calc(100vh - 100px);
     &__message{
-      // background-color: red;
       height: 91px;
       position: relative;
       
@@ -56,7 +54,7 @@
       color: white;
       font-size: 15px;
       height: 30px;
-      // background-color: salmon;
+      
 
       }
       &__title {
@@ -66,7 +64,6 @@
       color: white;
       font-size: 11px;
       height: 51px;
-      // background-color: seagreen;
       }
     }
    }
