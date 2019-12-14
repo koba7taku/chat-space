@@ -9,7 +9,7 @@
 ### Association
 - has_many :groups, through: :groups_users
 - has_many :group_users
-- has_many :chats
+- has_many :messages
 
 
 # groupsテーブル
@@ -20,9 +20,9 @@
 ### Association
 - has_many :users, through: :groups_users
 - has_many :groups_users
-- has_many :chats
+- has_many :messages
 
-# chatsテーブル
+# messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
@@ -42,3 +42,4 @@
 ### Association
 - belongs_to :user
 - belongs_to :group
+
