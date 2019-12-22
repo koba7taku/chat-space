@@ -37,67 +37,65 @@ $(function(){
   function buildHTML(message){
     if (message.content && message.image) {
       //data-idが反映されるようにしている
-      var html = `<div class="chat-main__message-list__group" data-message-id=` + message.id + `>` +
-        `<div class="chat-main__message-list__group__s">` +
-          `<div class="chat-main__message-list__group__s__name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="chat-main__message-list__group__s__time">` +
-            message.date +
-          `</div>` +
-        `</div>` +
-        `<div class="chat-main__message-list__group__message">` +
-            message.content +
-          `</p>` +
-          `<img src="` + message.image + `" class="chat-main__message-list__group__message" >` +
-        `</div>` +
-      `</div>`
+    
+      var html = `<div class="chat-main__message-list__group"  >
+                    <div class="chat-main__message-list__group__s">
+                      <div class="chat-main__message-list__group__s__name">
+                      ${message.user_name}
+                      </div>
+                      <div class="chat-main__message-list__group__s__time">
+                      ${message.date}
+                      </div>
+                    </div>
+                    <div class="chat-main__message-list__group__message" data-message_id = "${message.content}">
+                      </p>
+                      <img class="chat-main__message-list__group__message" src="${message.image}" alt="">
+                    </div>`;
       // 「もしメッセージに画像が含まれていたら」という条件式
     } else if (message.content) {
       //同様に、data-idが反映されるようにしている
-      var html = `<div class="chat-main__message-list__group" data-message-id=` + message.id + `>` +
-        `<div class="chat-main__message-list__group__s">` +
-          `<div class="chat-main__message-list__group__s__name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="chat-main__message-list__group__s__time">` +
-            message.date +
-          `</div>` +
-        `</div>` +
-        `<div class="chat-main__message-list__group__message">` +
-            message.content +
-          `</p>` +
-        `</div>` +
-      `</div>`
-    if (message.image) {
-        var html = `<div class="chat-main__message-list__group" data-message-id=` + message.id + `>` +
-                      `<div class="chat-main__message-list__group__s">` +
-                      `<div class="chat-main__message-list__group__s__name">` +
-                         message.user_name +
-                         `</div>` +
-                         `<div class="chat-main__message-list__group__s__time">` +
-                         message.date +
-                         `</div>` +
-                         `</div>` +
-                         ` <div class="chat-main__message-list__group__message">` +
-                         message.content +
-                         `<img src="` + message.image + `" class="lchat-main__message-list__group__message" >` +
-                         `</div>` +
-                    `</div>`                                
+      var html = `<div class="chat-main__message-list__group">
+                    <div class="chat-main__message-list__group__s"> 
+                      <div class="chat-main__message-list__group__s__name">
+                        ${message.user_name}
+                      </div>
+                      <div class="chat-main__message-list__group__s__time">
+                        ${message.date}
+                      </div>
+                    </div>
+                    <div class="chat-main__message-list__group__message" data-message_id = "${message.content}">
+                      </p>
+                    </div>
+                  </div>`;
+    }if (message.image) {
+        var html = `<div class="chat-main__message-list__group">
+                      <div class="chat-main__message-list__group__s">
+                        <div class="chat-main__message-list__group__s__name">
+                        ${message.user_name}
+                        </div>
+                        <div class="chat-main__message-list__group__s__time">
+                        ${message.date}
+                        </div>
+                      </div>
+                      <div class="chat-main__message-list__group__message" data-message_id = "${message.content}" >
+                        </p>
+                        <img class="chat-main__message-list__group__message" src="${message.image}" alt="">
+                      </div>
+                    </div>`;                                                         
       } else {
-        var html = `<div class="chat-main__message-list__group" data-message-id=` + message.id + `>` +
-                    `<div class="chat-main__message-list__group__s">` +
-                    `<div class="chat-main__message-list__group__s__name">` +
-                       message.user_name +
-                      `</div>` +
-                      `<div class="chat-main__message-list__group__s__time">` +
-                       message.date +
-                      `</div>` +
-                      `</div>` +
-                      ` <div class="chat-main__message-list__group__message">` +
-                       message.content +
-                      `</div>` +
-                    `</div>`
+        var html = `<div class="chat-main__message-list__group">
+                      <div class="chat-main__message-list__group__s"> 
+                        <div class="chat-main__message-list__group__s__name">
+                          ${message.user_name}
+                        </div>
+                        <div class="chat-main__message-list__group__s__time">
+                          ${message.date}
+                        </div>
+                      </div>
+                      <div class="chat-main__message-list__group__message" data-message_id = "${message.content}">
+                        </p>
+                      </div>
+                    </div>`;
       }
       return html
   }
@@ -126,5 +124,4 @@ $(function(){
       alert("メッセージ送信に失敗しました");
       })
     }) 
-  }
-})
+  })
